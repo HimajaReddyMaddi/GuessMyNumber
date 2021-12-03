@@ -34,23 +34,23 @@ public class GuessingGameMaddi {
                     "Enter a guess between 1 and 100", "Guessing Game", 3);
             userAnswer = Integer.parseInt(response);
 
-            JOptionPane.showMessageDialog(null, "" + determineGuess(userAnswer, computerNumber, count));
+            JOptionPane.showMessageDialog(null, "" + calculateMessage(userAnswer, computerNumber, count));
             count++;
         }
     }
 
     // TODO: Refactor / Rename determineGuess to calculateMessage
-    public static String determineGuess(int userAnswer, int computerNumber, int count) {
+    public static String calculateMessage(int userAnswer, int secretNumber, int count) {
         // TODO: Instead of "Try Number" which sounds like we should try that as a guess...
         // Say "You've used " + count + guesses.
         // If count is one, use "guess", else use "guesses" HINT: Ternary operator
         if (userAnswer <= 0 || userAnswer > 100) {
             return "Your guess is invalid";
-        } else if (userAnswer == computerNumber) {
+        } else if (userAnswer == secretNumber) {
             return "Correct!\nTotal Guesses: " + count;
-        } else if (userAnswer > computerNumber) {
+        } else if (userAnswer > secretNumber) {
             return "Your guess is too high, try again.\nTry Number: " + count;
-        } else if (userAnswer < computerNumber) {
+        } else if (userAnswer < secretNumber) {
             return "Your guess is too low, try again.\nTry Number: " + count;
         } else {
             return "Your guess is incorrect\nTry Number: " + count;
